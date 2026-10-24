@@ -1,0 +1,29 @@
+# ── 凭证：绝对不能提交 ──────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── 运行时状态 ──────────────────────────────────────
+# data/ 里是去重索引 state.db 和 access_token 缓存，属于「跑起来才有」的东西
+data/
+out/
+logs/
+
+# 用户自己的配置（品牌名、条数、阈值等个性化设置），模板见 config.example.json
+config.json
+
+# ── Python ──────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ── 编辑器 / 系统 ───────────────────────────────────
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# ── 本机 agent 记忆（含运维细节，不公开）──────────────
+.workbuddy-ai/

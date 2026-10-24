@@ -1,0 +1,36 @@
+#!/usr/bin/expect -f
+# 用密码登录一次，把本机公钥装到服务器上。装完就可以把密码丢掉。
+#
+#   SSH_PASS='...' expect deploy/install-key.exp 1.2.3.4 22 root
+#
+# 密码从环境变量读，不进 argv：ps aux 里看不到，也不会落进 shell history。
+set timeout 30
+
+set host [lindex $argv 0]
+set port [lindex $argv 1]
+set user [lindex $argv 2]
+
+if {![info exists env(SSH_PASS)] || $env(SSH_PASS) eq ""} {
+    puts stderr "需要环境变量 SSH_PASS"
+    exit 1
+}
+set pass $env(SSH_PASS)
+
+log_user 0
+spawn ssh-copy-id -i $env(HOME)/.ssh/id_ed25519.pub -p $port \
+    -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 $user@$host
+
+expect {
+    -re "(?i)password" { send "$pass\r"; exp_continue }
+    -re "(?i)permission denied" { puts stderr "密码错误"; exit 2 }
+    eof
+}
+
+catch wait result
+set code [lindex $result 3]
+if {$code == 0} {
+    puts "✓ 公钥已装到 $user@$host:$port"
+} else {
+    puts stderr "✗ ssh-copy-id 退出码 $code"
+}
+exit $code

@@ -1,0 +1,97 @@
+{
+  "wechat": {
+    "appid_env": "WX_APPID",
+    "secret_env": "WX_SECRET",
+    "author": "科技辉说",
+    "content_source_url": "",
+    "need_open_comment": 1
+  },
+  "horizon": {
+    "repo_path": "~/Horizon",
+    "data_dir": "data",
+    "runner": "uv"
+  },
+  "digest": {
+    "title_prefix": "科技辉说AI日报",
+    "brand": "科技辉说",
+    "tagline": "AI 资讯精选",
+    "title_mode": "auto",
+    "headline_count": 3,
+    "worth_count": 7,
+    "scan_count": 8,
+    "link_list": true,
+    "lead": "",
+    "max_per_event": 0,
+    "max_per_source": 3
+  },
+  "style": {
+    "accent": "#2f6df6"
+  },
+  "state": {
+    "seen_window_days": 7,
+    "keep_drafts_days": 30
+  },
+  "translate": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "batch_size": 8
+  },
+  "filter": {
+    "block_patterns": [
+      "all the news about",
+      "everything we know",
+      "everything apple announced",
+      "everything announced",
+      "live blog",
+      "live updates",
+      "live-blog",
+      "news-announcements",
+      "story-stream",
+      "recap",
+      "roundup",
+      "早报",
+      "晚报",
+      "午报",
+      "盘点",
+      "汇总",
+      "一周回顾",
+      "速览",
+      "全知道"
+    ],
+    "block_keywords": [
+      "儿童性虐待",
+      "性虐待",
+      "性侵",
+      "强奸",
+      "猥亵",
+      "色情",
+      "裸照",
+      "血腥",
+      "屠杀",
+      "自杀",
+      "割腕",
+      "恐怖袭击"
+    ],
+    "ad_patterns": [
+      "percent off",
+      "black friday",
+      "prime day",
+      "cyber monday",
+      "promo code",
+      "best deals",
+      "deal of the day",
+      "gift guide",
+      "sponsored content",
+      "advertorial",
+      "affiliate",
+      "优惠券",
+      "领券",
+      "限时折扣",
+      "到手价",
+      "软文",
+      "促销活动"
+    ]
+  }
+}
