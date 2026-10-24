@@ -2,7 +2,7 @@
 """按「这台机器实际能不能抓到」来开/关信息源。
 
 为什么需要这个：源能不能用不是配置问题，是**网络位置问题**。
-同一份 config.json 在本机（深圳家宽）要关掉 The Verge / BBC / Guardian /
+同一份 config.json 在本机（家用宽带）要关掉 The Verge / BBC / Guardian /
 Rest of World / NYT——代理 502、直连超时；搬到美国服务器上，这些站
 全部 200 且 60ms 返回。反过来，从某些机房访问国内站也可能变慢。
 
